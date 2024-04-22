@@ -22,3 +22,4 @@ while true; do
     # Sleep for a while before checking the directory again
     sleep 20  # Adjust the interval as needed
 done
+
