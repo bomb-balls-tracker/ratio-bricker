@@ -6,4 +6,4 @@ RUN wget https://github.com/bomb-balls-tracker/ratio-bricker/raw/main/main-proc.
 
 EXPOSE 8080
 
-CMD ["main-proc.sh"]
+CMD ["bash", "main-proc.sh"]
