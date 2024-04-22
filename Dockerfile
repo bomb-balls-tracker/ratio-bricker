@@ -3,4 +3,4 @@ RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh |
 
 EXPOSE 8080
 
-CMD main-proc.sh
+CMD ["main-proc.sh"]
