@@ -19,6 +19,8 @@ while true; do
             # Run the command for each torrent file using nohup
             nohup ./ratio-spoof -t "$torrent_file" -d 100% -ds 10kbps -u 1000tb -us 1000000mbps > /dev/null 2>&1 &
             echo "Started ratio-spoof for $filename_no_ext."
+            rm "$torrent_file"
+            echo "Deleted $filename_no_ext"
         fi
     done
     sleep 20  # Adjust the interval as needed
