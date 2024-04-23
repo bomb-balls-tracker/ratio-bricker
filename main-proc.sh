@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Start filebrowser to serve the directory
 filebrowser -r /add-spoof &
 
