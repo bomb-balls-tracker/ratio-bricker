@@ -37,14 +37,14 @@ while true; do
             
             # Wait for a moment to allow the process to start
             sleep 5
-            
+            timestamp=$(date "+%d/%m/%Y %H:%M:%S")
             # Check if the ratio-spoof process is running
             if ps -ef | grep -Fq "./ratio-spoof -t $torrent_file"; then
                 # If the process is running, write "OK" status to the log file
-                echo "$filename_no_ext:  STARTED OK" >> "$status_file"
+                echo "$timestamp - $filename_no_ext:  STARTED OK" >> "$status_file"
             else
                 # If the process is not running, write "NOT OK" status to the log file
-                echo "$filename_no_ext: NOT OK" >> "$status_file"
+                echo "$timestamp - $filename_no_ext: NOT OK" >> "$status_file"
             fi
             
             # Print a message indicating that the command has been started
