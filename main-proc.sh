@@ -44,12 +44,13 @@ while true; do
                 echo "$timestamp - $filename_no_ext:  STARTED OK" >> "$status_file"
             else
                 # If the process is not running, write "NOT OK" status to the log file
-                echo "$timestamp - $filename_no_ext: NOT OK" >> "$status_file"
+                echo "$timestamp - $filename_no_ext: DID NOT START OK" >> "$status_file"
             fi
             
             # Print a message indicating that the command has been started
             echo "Started ratio-spoof for $filename_no_ext."
             rm "$torrent_file"
+            ps -ef
         fi
     done
     
