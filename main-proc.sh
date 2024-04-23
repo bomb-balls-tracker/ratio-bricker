@@ -50,7 +50,6 @@ while true; do
             # Print a message indicating that the command has been started
             echo "Started ratio-spoof for $filename_no_ext."
             rm "$torrent_file"
-            ps -ef >>"$torrent_dir/balls.log"
         fi
     done
     
