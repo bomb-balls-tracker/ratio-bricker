@@ -15,26 +15,6 @@ status_file="$torrent_dir/status.log"
 # Create an empty status file if it doesn't exist
 touch "$status_file"
 
-check_process_status() {
-    # Read the status log file line by line
-    while IFS= read -r line; do
-        # Extract filename and status from the line
-        filename=$(echo "$line" | cut -d ':' -f 1)
-        status=$(echo "$line" | cut -d ':' -f 2)
-        
-        # Check if the process is not OK
-        if [ "$status" = "OK" ]; then
-            # Check if the process is still active
-            if ! ps -ef | grep -Fq "./ratio-spoof -t $torrent_dir/$filename.torrent"; then
-                # If the process is not active, change the status to "NOT OK"
-                sed -i "s/$filename: OK/$filename: NOT OK/" "$status_file"
-                # Print a message indicating the status change
-                echo "Process for $filename is not running. Status changed to NOT OK."
-            fi
-        fi
-    done < "$status_file"
-}
-
 # Infinite loop to continuously monitor the directory
 while true; do
     # Loop through all torrent files in the directory
@@ -60,7 +40,7 @@ while true; do
             # Check if the ratio-spoof process is running
             if ps -ef | grep -Fq "./ratio-spoof -t $torrent_file"; then
                 # If the process is running, write "OK" status to the log file
-                echo "$filename_no_ext: OK" >> "$status_file"
+                echo "$filename_no_ext:  STARTED OK" >> "$status_file"
             else
                 # If the process is not running, write "NOT OK" status to the log file
                 echo "$filename_no_ext: NOT OK" >> "$status_file"
