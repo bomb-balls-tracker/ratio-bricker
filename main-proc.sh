@@ -51,7 +51,7 @@ while true; do
             rm "$torrent_file"
         fi
     done
-    check_process_status
+    
     # Sleep for a while before checking the directory again
     sleep 20  # Adjust the interval as needed
 done
