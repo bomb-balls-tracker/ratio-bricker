@@ -2,7 +2,7 @@
 
 
 # Start filebrowser to serve the directory
-filebrowser -r /add-spoof &
+filebrowser &
 
 # Wait for filebrowser to start
 sleep 5
