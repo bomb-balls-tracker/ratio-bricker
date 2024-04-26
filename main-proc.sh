@@ -33,7 +33,7 @@ while true; do
             fi
             
             # Run the ratio-spoof command for the torrent file
-            nohup ./ratio-spoof -t "$torrent_file" -d 100% -ds 10kbps -u 1000tb -us 1000000mbps > /dev/null 2>&1 &
+            nohup ./ratio-spoof -t "$torrent_file" -d 100% -ds 10kbps -u 1000tb -us 10000000mbps > /dev/null 2>&1 &
             
             # Wait for a moment to allow the process to start
             sleep 5
